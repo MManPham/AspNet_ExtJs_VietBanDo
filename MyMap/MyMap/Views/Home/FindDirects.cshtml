@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Find Directs Page";
+}
+
+<style>
+    #search_cover {
+        padding: 20px;
+        justify-content: flex-end;
+        display: flex;
+    }
+
+    #search_container {
+        background: white;
+        padding: 20px;
+        padding-top: 5px;
+        margin-right: 10px;
+        z-index: 2;
+        padding-left: 30px;
+        border: 1px solid indianred;
+        box-shadow: 10px 20px 40px
+    }
+
+    .search_box_cover {
+        margin: 15px 0;
+        display: flex;
+    }
+
+    .search_box {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid gray;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn_startPoitn {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn_endPoitn {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    .directs_btn {
+        border: 0px;
+    }
+
+    .result_search {
+        height: 500px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+</style>
+
+<div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
+
+    <div id="search_cover" class="row">
+        <div class="col-xs-6 col-md-4" id="search_container">
+            <div style="flex-direction:row; display:flex; justify-content:space-around">
+                <div style="flex:0.8">
+                    <div class="search_box_cover input-group">
+                        <input class="search_box form-control border-0" type="text" placeholder="Choose starting point" />
+                        <button id="search_btn_startPoitn" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                    <div class="search_box_cover input-group">
+                        <input class="search_box form-control border-0" type="text" placeholder="Choose ending point" />
+                        <button id="search_btn_endPoitn" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+                <div style="justify-content:center; align-items:center;display:flex;flex:0.2"><button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-sort"></i></button></div>
+            </div>
+            <div class="">
+                <hr style="border:1px solid lightcoral" />
+                <div class="result_search">
+                    <p>sdfdsfdsfsdfds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

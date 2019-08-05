@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    #search_cover {
+        padding: 20px;
+        justify-content:flex-end;
+        display:flex;
+    }
+
+    #search_container {
+        background: white;
+        padding: 10px 10px;
+        padding-top: 5px;
+        margin-right: 10px;
+        z-index: 2;
+        border: 1px solid indianred;
+        box-shadow: 10px 20px 40px
+    }
+
+    #search_box_cover {
+    }
+
+    #search_box {
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid gray;
+        margin-right: 10px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    #search_btn {
+        border: 0px;
+    }
+
+    #directs_btn {
+        border: 0px;
+    }
+
+    #result_search {
+        height: 500px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+</style>
+<div id="containerMap" class="body-content" style="height:100%; background-color:lightgray; padding:0">
+    <div id="search_cover" class="row">
+        <div class="col-xs-6 col-md-4" id="search_container">
+            <div id="search_box_cover" class="input-group">
+                <input id="search_box" type="text" class="form-control border-0" placeholder="Search Viet Ban Do Map" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default" id="search_btn"><i class="glyphicon glyphicon-search"></i></button>
+                    <span style="border: 1px solid grey;padding-top: 10px;padding-bottom: 10px;margin: 0 10px;"></span>
+                    <button class="btn btn-default" id="directs_btn">Directs</button>
+                </div>
+            </div>
+            <div class="hide">
+                <hr style="border:1px solid lightcoral" />
+                <div id="result_search">
+                    <p>sdfdsfdsfsdfds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
