@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\..\..\MyMapSource-master\MyMapProject.DLL\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxPro.2">
+      <HintPath>..\..\..\MyMapSource-master\MyMapProject.DLL\AjaxPro.2.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,12 +63,16 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\..\MyMapSource-master\MyMapProject.DLL\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -134,12 +144,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\vbd_services\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\User.cs" />
+    <Compile Include="Models\SearchDirectModel.cs" />
     <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,12 +176,104 @@
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MyMapSerVices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MyDatabase.mdf" />
     <Content Include="App_Data\MyDatabase_log.ldf">
       <DependentUpon>MyDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.MultipleCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.MultipleGroupCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.Multiplestring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.MultipleVietBandoPOI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleArrayOfArrayOfdouble.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleArrayOfdouble.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleArrayOfPoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleArrayOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.Singlebase64Binary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleBatchGetRoadSpeedReult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleBatchReverseGeocodingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.Singleboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleDirectionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleFindShortestPathOrderResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleForecastTrackingGeoResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleGeoCodingReponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleGroupCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleMBROfRegionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SinglePoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleReverseGeocodeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleRoadSpeedResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleShortestPathWithBarriersResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.Singlestring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleSubRegionNameCodesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleTrackingInformationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleViaRouteResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\vbd_services\GetStartAspNet.vbd_services.SingleVietBandoPOI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\vbd_services\PartnerPortalService.disco" />
+    <None Include="Connected Services\vbd_services\configuration91.svcinfo" />
+    <None Include="Connected Services\vbd_services\configuration.svcinfo" />
+    <None Include="Connected Services\vbd_services\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -194,6 +302,37 @@
     <Content Include="Models\MyModel.edmx.diagram">
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Content>
+    <None Include="Connected Services\vbd_services\PartnerPortalService.wsdl" />
+    <None Include="Connected Services\vbd_services\PartnerPortalService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\vbd_services\PartnerPortalService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -224,7 +363,9 @@
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -240,6 +381,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\vbd_services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

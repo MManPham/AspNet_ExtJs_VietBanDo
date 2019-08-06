@@ -1,4 +1,6 @@
 ﻿using GetStartAspNet.Models;
+using GetStartAspNet.Services;
+using GetStartAspNet.vbd_services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace GetStartAspNet.Controllers
 {
     public class HomeController : Controller
     {
+
         [Authorize]
         public ActionResult Index()
         {
@@ -22,13 +25,49 @@ namespace GetStartAspNet.Controllers
             return HttpNotFound();
         }
 
+        [HttpPost]
+        public ActionResult Index(SearchDirectModel search)
+        {
+            if (search.keySearch != null)
+            {
+                MyMapSerVices map_services = new MyMapSerVices();
+                try
+                {
+                    search.results = map_services.SearchAll(search.keySearch, 1);
+                }
+                catch (Exception e)
+                {
+                    ViewBag.hasResult = false;
+                    ViewBag.message = "Error:" + e.ToString();
+                }
+                if (search.results == null || search.results.Length == 0)
+                {
+                    ViewBag.hasResult = false;
+                    ViewBag.message = "No result!";
+                    return View(search);
+                }
+                else
+                {
+                    ViewBag.hasResult = true;
+                    return View(search);
+                }
+
+            }
+            else
+            {
+                ViewBag.hasResult = false;
+                ViewBag.message = "search key not found!";
+                return View();
+            }
+        }
+
         [Authorize]
         public ActionResult FindDirects()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
+
 
         [Authorize]
         public ActionResult MyDirection()
