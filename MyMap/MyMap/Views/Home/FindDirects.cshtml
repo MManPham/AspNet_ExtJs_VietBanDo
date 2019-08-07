@@ -4,24 +4,27 @@
 
 <style>
     #search_cover {
-        padding: 20px;
+        padding: 10px;
         justify-content: flex-end;
         display: flex;
     }
 
     #search_container {
         background: white;
-        padding: 20px;
-        padding-top: 5px;
-        margin-right: 10px;
         z-index: 2;
-        padding-left: 30px;
-        border: 1px solid black;
-        box-shadow: 10px 20px 40px
+        box-shadow: 10px 20px 40px;
+        margin-right: 15px;
+        padding: 0;
+        width: 30%;
+    }
+
+    #findDirecBox {
+        padding: 10px;
+        padding-top: 5px;
     }
 
     .search_box_cover {
-        margin: 15px 0;
+        margin: 10px 0;
         display: flex;
     }
 
@@ -45,6 +48,16 @@
         box-shadow: none !important;
     }
 
+    #screenShot {
+        border: 0px;
+        outline: none;
+        box-shadow: none !important;
+    }
+
+    .iconScreenShot {
+        font-size: 15px;
+    }
+
     .directs_btn {
         border: 0px;
     }
@@ -61,21 +74,28 @@
 
     <div id="search_cover" class="row">
         <div class="col-xs-6 col-md-4" id="search_container">
-            <div style="flex-direction:row; display:flex; justify-content:space-around">
-                <div style="flex:0.8">
+            <div id="findDirecBox" style="flex-direction:row; display:flex; justify-content:space-around">
+                <div style="flex:0.9">
                     <div class="search_box_cover input-group">
+                        <button id="screenShot" class="btn btn-default "><i class="iconScreenShot glyphicon glyphicon-screenshot"></i></button>
                         <input class="search_box form-control border-0" type="text" placeholder="Choose starting point" />
                         <button id="search_btn_startPoitn" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                     <div class="search_box_cover input-group">
+                        <button id="screenShot" class="btn btn-default "><i class="iconScreenShot glyphicon glyphicon-screenshot"></i></button>
                         <input class="search_box form-control border-0" type="text" placeholder="Choose ending point" />
                         <button id="search_btn_endPoitn" type="submit" class="btn btn-default "><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
-                <div style="justify-content:center; align-items:center;display:flex;flex:0.2"><button class="btn btn-default btn-lg"><i class="glyphicon glyphicon-sort"></i></button></div>
+
+                <div style="justify-content:center; align-items:center;display:flex;flex:0.2">
+                    <button class="btn btn-default btn-lg">
+                        <i class="glyphicon glyphicon-menu-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="">
-                <hr style="border:1px solid lightcoral" />
+            <div class="hidden">
+                <hr style="border:1px solid lightcoral; margin:5px 0" />
                 <div class="result_search">
                     <p>sdfdsfdsfsdfds</p>
                 </div>
@@ -83,4 +103,4 @@
         </div>
     </div>
 </div>
-
+<script src="~/Scripts/FindDirectsPage.js"></script>

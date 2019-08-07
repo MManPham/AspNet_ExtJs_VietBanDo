@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AjaxPro;
 
 namespace GetStartAspNet.Controllers
 {
@@ -68,6 +69,16 @@ namespace GetStartAspNet.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult SearchDirect(string keySearch )
+        {
+            
+            SearchDirectModel search = new SearchDirectModel();
+            search.keySearch = keySearch;
+             MyMapSerVices map_services = new MyMapSerVices();
+            search.results = map_services.SearchAll(search.keySearch, 1);
+            return Json(search, JsonRequestBehavior.AllowGet);
+        }
 
         [Authorize]
         public ActionResult MyDirection()
