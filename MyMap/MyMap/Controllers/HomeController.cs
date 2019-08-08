@@ -65,11 +65,26 @@ namespace GetStartAspNet.Controllers
         [Authorize]
         public ActionResult FindDirects()
         {
+            MyMapSerVices map_services = new MyMapSerVices();
+            
+            Point a = new Point();
+            a.Latitude = 14.072644954380323;
+            a.Longitude = 108.43505859375;
 
+            Point b = new Point();
+            b.Latitude = 14.30696949782579;
+            b.Longitude = 108.0615234375;
+
+            var points = new Point[2];
+            points[0] = a;
+            points[1] = b;
+            var test = map_services.FindShortPath(points, 0);
+          
+            
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public JsonResult SearchDirect(string keySearch )
         {
             
